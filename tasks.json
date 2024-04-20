@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "110 homework 1",
+        "descriptions": "Refer to Canvas",
+        "due_date": "2024-04-09T03:03",
+        "completed": true
+    },
+    {
+        "id": 2,
+        "title": "110 homework 2",
+        "descriptions": "Refer to Canvas",
+        "due_date": "2024-04-09T013:43",
+        "completed": false
+    }
+]
