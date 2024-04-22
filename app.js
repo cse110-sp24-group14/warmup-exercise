@@ -27,6 +27,6 @@ function populate_table_by_date() {
       });
       parsed_dates.sort((a, b) => a.date_val - b.date_val);
       console.log("sorted parsed dates", parsed_dates);
-      return parsed_dates;
     });
+    return parsed_dates;
 }
