@@ -6,7 +6,35 @@
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
+
+<!-- TEMPORARY TABLE STYLING  -->
+<style>
+    table, th, td {
+        border:1px solid black;
+    }
+</style>
+
 <body>
+
+    <table id="complete-table">
+        <caption>Completed Tasks</caption>
+        <tr>
+            <th>Title</th>
+            <th>Descriptions</th>
+            <th>Due Date</th>
+        </tr>
+    </table>
+
+    <br>
+
+    <table id="incomplete-table">
+        <caption>Not Completed Tasks</caption>
+        <tr>
+            <th>Title</th>
+            <th>Descriptions</th>
+            <th>Due Date</th>
+        </tr>
+    </table>
 
     <script src="app.js"></script>
 </body>

@@ -10,7 +10,7 @@
         "id": 2,
         "title": "110 homework 2",
         "descriptions": "Refer to Canvas",
-        "due_date": "2024-04-09T013:43",
+        "due_date": "2024-04-09T13:43",
         "completed": false
     },
     {
@@ -24,7 +24,7 @@
         "id": 4,
         "title": "110 homework 4",
         "descriptions": "Refer to Canvas",
-        "due_date": "2024-04-15T013:43",
+        "due_date": "2024-04-15T13:43",
         "completed": false
     },
     {
@@ -38,7 +38,7 @@
         "id": 6,
         "title": "110 homework 6",
         "descriptions": "Refer to Canvas",
-        "due_date": "2024-04-13T013:43",
+        "due_date": "2024-04-13T13:43",
         "completed": false
     }
 ]
