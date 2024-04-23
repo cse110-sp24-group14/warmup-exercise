@@ -1,33 +1,46 @@
 .banner {
     /* Banner formatting */
     display: flex;
+    position: absolute;
+    top: 0;                              /* Roof to top of page */
+
+    margin-right: auto;                  /* Centering horizontally */
+    margin-left: auto;
+    left: 0;
+    right: 0;
+
+    width: 210px;
+    height: 60px;
 
     /* Banner style */
-    background-color: lightgrey;
+    background-color: whitesmoke;
+
+    border-bottom-left-radius: 20px;      /* For rounded corners*/
+    border-bottom-right-radius: 20px;
+
+    box-shadow: 0 4px 8px 0 silver;       /* For box shadow*/
 }
 
-.banner a {
-    /* Link formatting */
+.banner p {
+    /* Text formatting */
+    margin-left: 2px;
+    margin-right: auto;
+    padding-left: 0px;
     align-self: center;
-    padding: 10px;
 
     /* Text style */
-    color: black;
-    text-align: center;
-    text-decoration: none;
+    font-family: 'Caveat';
+    font-size: 32px;
+    color: #1A5AB9                      /* Other color: #42A4EB */
 }
 
 .banner .logo {
     /* Logo formatting */
     margin-left: auto;
-    padding: 8px;
+    margin-right: 2px;
+    align-self: center;
     
     /* Logo size */
     width: 40px;
     height: auto; 
-}
-
-.banner a:hover {
-    /* Link hover style*/
-    background-color: grey;
 }
