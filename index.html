@@ -12,9 +12,8 @@
         <tr>
           <!-- <th>ID</th>
           <th>Title</th> -->
-          <th>Description</th>
-          <th>Completed</th>
-          <th>Date</th>
+          <th>Task</th>
+          <th>Due Date</th>
         </tr>
       </thead>
       <tbody id="data-table"></tbody>
@@ -44,9 +43,17 @@
             const row = document.createElement("tr");
             row.innerHTML = `
                         <td>${element.descriptions_val}</td>
-                        <td>${element.completed_val}</td>
-                        <td>${element.date_val}</td>
+                        <td>${new Date(element.date_val).toLocaleString(
+                          undefined,
+                          {
+                            month: "numeric",
+                            day: "numeric",
+                          }
+                        )}</td>
                     `;
+            if (element.completed_val == true) {
+              row.style.textDecoration = "line-through";
+            }
             table_data.appendChild(row);
           });
         });
