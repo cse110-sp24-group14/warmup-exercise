@@ -19,14 +19,28 @@ const fetchJson = (file) => {
  */
 const populateTable = (taskList) => {
     // go through each task and create a row
+
+    const taskCount = {"incomplete": 0, "complete": 0};
+
     taskList.forEach((task) => {
         // gets table that the task belongs to
-        const tableId = (task.completed ? "" : "in") + "complete-table";
+        const completeBool = task.completed ? "complete" : "incomplete";
+
+        const tableId = `${completeBool}-table`;
         const table = document.getElementById(tableId);
 
-        const row = createRow(task);
+        const row = createRow(task, task.completed);
         table.appendChild(row);
+
+        // count number of each task
+        taskCount[completeBool] += 1;
     })
+
+    // update the count of both types of tasks
+    for (let count in taskCount) {
+        const title = document.getElementById(`${count}-title`);
+        title.textContent += ` (${taskCount[count]})`;
+    }
 }
 
 /**
@@ -35,26 +49,29 @@ const populateTable = (taskList) => {
  * @param {Object} task
  * @returns row element to be added to the table
  */
-const createRow = (task) => {
+const createRow = (task, completed) => {
     // create a row element
     const row = document.createElement('tr');
 
-    // title of task
-    // const title = document.createElement('td');
-    // title.textContent = task.title;
+    // date of task
+    const date = document.createElement('td');
+    // get in format MM/dd
+    date.textContent = new Date(task.due_date).toLocaleString(undefined, {
+        month: "numeric", day: "numeric"
+    })
 
     // description of task
     const description = document.createElement('td');
     description.textContent = task.description;
 
-    // date of task
-    const date = document.createElement('td');
-    date.textContent = new Date(task.due_date).toLocaleString();
+    // if completed, strikethrough
+    if (completed) {
+        description.style.textDecoration = "line-through";
+    }
 
     // append to row
-    // row.appendChild(title);
-    row.appendChild(description);
     row.appendChild(date);
+    row.appendChild(description);
 
     return row;
 }
