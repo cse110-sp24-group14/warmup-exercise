@@ -40,19 +40,19 @@ const createRow = (task) => {
     const row = document.createElement('tr');
 
     // title of task
-    const title = document.createElement('td');
-    title.textContent = task.title;
+    // const title = document.createElement('td');
+    // title.textContent = task.title;
 
     // description of task
     const description = document.createElement('td');
-    description.textContent = task.descriptions;
+    description.textContent = task.description;
 
     // date of task
     const date = document.createElement('td');
     date.textContent = new Date(task.due_date).toLocaleString();
 
     // append to row
-    row.appendChild(title);
+    // row.appendChild(title);
     row.appendChild(description);
     row.appendChild(date);
 

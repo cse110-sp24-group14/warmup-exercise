@@ -1,43 +1,37 @@
 [
     {
         "id": 1,
-        "title": "110 homework 1",
-        "descriptions": "Refer to Canvas",
-        "due_date": "2024-04-09T03:03",
+        "description": "CSE 110 homework 1",
+        "due_date": "2024-03-09T03:03",
         "completed": true
     },
     {
         "id": 2,
-        "title": "110 homework 2",
-        "descriptions": "Refer to Canvas",
-        "due_date": "2024-04-09T13:43",
-        "completed": false
+        "description": "CSE 110 homework 2",
+        "due_date": "2024-03-10T13:43",
+        "completed": true
     },
     {
         "id": 3,
-        "title": "110 homework 3",
-        "descriptions": "Refer to Canvas",
-        "due_date": "2024-04-10T03:03",
+        "description": "CSE 110 homework 3",
+        "due_date": "2024-04-07T03:03",
         "completed": true
     },
     {
         "id": 4,
-        "title": "110 homework 4",
-        "descriptions": "Refer to Canvas",
-        "due_date": "2024-04-15T13:43",
+        "description": "CSE 110 homework 4",
+        "due_date": "2024-04-09T13:43",
         "completed": false
     },
     {
         "id": 5,
-        "title": "110 homework 5",
-        "descriptions": "Refer to Canvas",
+        "description": "CSE 110 homework 5",
         "due_date": "2024-04-13T03:03",
         "completed": true
     },
     {
         "id": 6,
-        "title": "110 homework 6",
-        "descriptions": "Refer to Canvas",
+        "description": "CSE 110 homework 6",
         "due_date": "2024-04-13T13:43",
         "completed": false
     }
