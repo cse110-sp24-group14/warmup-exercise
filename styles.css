@@ -1,0 +1,33 @@
+.banner {
+    /* Banner formatting */
+    display: flex;
+
+    /* Banner style */
+    background-color: lightgrey;
+}
+
+.banner a {
+    /* Link formatting */
+    align-self: center;
+    padding: 10px;
+
+    /* Text style */
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+.banner .logo {
+    /* Logo formatting */
+    margin-left: auto;
+    padding: 8px;
+    
+    /* Logo size */
+    width: 40px;
+    height: auto; 
+}
+
+.banner a:hover {
+    /* Link hover style*/
+    background-color: grey;
+}
