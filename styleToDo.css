@@ -1,0 +1,21 @@
+table {
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+td {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* This will make each cell a rounded box */
+    background-color: #FAFAFA;
+    min-width: 10cm;
+    min-height: 2cm;
+}
+
+td:hover{
+    background-color: #EBEBEB;
+}
+
+tr{
+    color: #2168C4
+}
