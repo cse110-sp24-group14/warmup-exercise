@@ -1,0 +1,37 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.button-container {
+    margin: 20px;
+}
+
+.toggle-input {
+    display: none; /* Hide the checkbox input */
+}
+
+.toggle-button {
+    background-color: white; /* Default state */
+    color: #1D61BD;
+    border: 2px solid #1D61BD;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    margin: 10px;
+    transition: all 0.3s ease;
+    display: inline-block; /* Make label display like a button */
+}
+
+.toggle-button:hover {
+    background-color: #e6efff;
+    border-color: #0f5499;
+}
+
+/* Styles when checkbox is checked */
+.toggle-input:checked + .toggle-button {
+    background-image: linear-gradient(to right, #1A5AB9, #42A4EB);
+    color: white;
+    border: none;
+}
