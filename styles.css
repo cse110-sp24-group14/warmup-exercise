@@ -1,0 +1,58 @@
+
+/* Apply general styles for all screens */ 
+
+table {
+    width: 100%;
+}
+
+#title {
+    margin: auto;
+    text-align: center;
+    border:1px solid black;
+    width: 20%;
+}
+
+#completionButton {
+    float: right;
+}
+
+#dateButton {
+    float: right;
+    margin-right: 5%;
+}
+
+#today {
+    float: left;
+    margin-top: 0;
+}
+
+#page-container {
+    margin-top: 5%;
+}
+
+#footer-container {
+    background-color: lightblue;
+    height: 25vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    position: fixed;
+    text-align: center;
+}
+
+/* Apply styles for screens with a maximum width of 950px (tablet) */
+@media only screen and (max-width: 950px) {
+    #page-container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+/* Apply styles for screens with a maximum width of 650px (mobile) */
+@media only screen and (max-width: 650px) {
+    #page-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
