@@ -1,0 +1,33 @@
+@media screen and (max-width: 600px) 
+{
+
+    .task-table {
+        border-spacing: 10px;
+    }
+
+    td {
+        padding: 8px;
+        border: 0.5px solid #ccc;
+        
+        min-width: 5cm;
+        min-height: 1cm;
+    }
+
+    .icon {
+        width: 10px;
+        height: 10px;
+    }
+
+    .social-link {
+        width: auto;
+        position: unset;
+        transform: none;
+    }
+
+    .useful-link {
+        width: auto;
+        position: unset;
+    }
+
+
+}
