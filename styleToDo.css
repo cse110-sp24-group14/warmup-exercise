@@ -4,7 +4,10 @@ table {
     border-spacing: 20px;
     margin: 0 auto;
 }
-
+p{
+   text-align: center;
+   font-weight: bold;
+}
 td {
     padding: 15px;
     border-radius: 10px; 
