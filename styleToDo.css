@@ -1,17 +1,26 @@
+
 table {
     border-collapse: separate;
     border-spacing: 20px;
+    margin: 0 auto;
 }
 
 td {
     padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px; /* This will make each cell a rounded box */
-    background-color: #FAFAFA;
-    min-width: 10cm;
-    min-height: 2cm;
+    border-radius: 10px; 
+    background-color: #F7F7F7;
+    box-sizing: border-box;
 }
 
+td:first-child {
+    min-width: 1cm;
+    white-space: nowrap;
+    text-align: center;
+}
+
+td:nth-child(2) {
+    min-width:10cm; 
+}
 td:hover{
     background-color: #EBEBEB;
 }
