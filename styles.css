@@ -1,0 +1,93 @@
+/* Set up footer position and size */
+footer {
+    background: rgb(26,90,185);
+    background: linear-gradient(90deg, rgba(26,90,185,1) 0%, rgba(66,164,235,1) 100%);
+    width: 100vw;
+    height: auto;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Remove outlines and set up border-box */
+footer * {
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+/* Offset footer from web content */
+.footer-container {
+    margin-top: 20px;
+    padding-top: 0.5em;
+    padding-bottom: 0em;
+}
+
+/* Set size and offset of footer text */
+.contact * {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    width: 100%;
+    height: auto;
+}
+
+/* Set dimensions of contact button */
+.contact-button {
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+    font-size: 1.2em;
+    font-family: "Source Sans 3", sans-serif;
+    padding: 0.6em 2em;
+    border-radius: 20px;
+}
+
+/* Fix margin for annoying text content area */
+.contact p:first-child {
+    margin-bottom: 10px;
+}
+
+/* Set alignment and color of contact text */
+.contact {
+    text-align: center;
+    color: white;
+}
+
+/* Add hover effect for contact button */
+.contact-button:hover {
+    background-color: rgb(180, 180, 180);
+    transition: background-color 0.3s ease;
+}
+
+/* Position menu bar container */
+.footer-bar {
+    color: white;
+    text-align: center;
+    bottom: 0;
+}
+
+/* Style footer bar line */
+.footer-bar hr {
+    width: 60%;
+    border-top: 1px solid white;
+    opacity: 50%;
+    margin: 0 auto;
+}
+
+/* Fix logo text to align with github icon */
+.footer-bar p {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Separate logo and github icon with flex container */
+.footer-content {
+    padding-top: 0.5em;
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    margin: auto;
+}
