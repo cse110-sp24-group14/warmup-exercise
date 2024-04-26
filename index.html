@@ -10,10 +10,8 @@
     <table>
       <thead>
         <tr>
-          <!-- <th>ID</th>
-          <th>Title</th> -->
-          <th>Task</th>
           <th>Due Date</th>
+          <th>Task</th>
         </tr>
       </thead>
       <tbody id="data-table"></tbody>
@@ -27,22 +25,18 @@
         .then((data) => {
           data.forEach((task) => {
             parsed_dates.push({
-              // id_val: task.id,
-              // title_val: task.title,
               descriptions_val: task.description,
               date_val: new Date(Date.parse(task.due_date)),
               completed_val: task.completed,
             });
           });
           parsed_dates.sort((a, b) => a.date_val - b.date_val);
-          console.log("sorted parsed dates", parsed_dates);
         })
         .then(() => {
           const table_data = document.getElementById("data-table");
           parsed_dates.forEach((element) => {
             const row = document.createElement("tr");
-            row.innerHTML = `
-                        <td>${element.descriptions_val}</td>
+            row.innerHTML = `  
                         <td>${new Date(element.date_val).toLocaleString(
                           undefined,
                           {
@@ -50,6 +44,7 @@
                             day: "numeric",
                           }
                         )}</td>
+                        <td>${element.descriptions_val}</td>
                     `;
             if (element.completed_val == true) {
               row.style.textDecoration = "line-through";
