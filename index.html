@@ -23,144 +23,126 @@
         <p>Ta-da!</p>
     </nav>
 
-    <script>
-        // document.getElementById('btnDate').addEventListener('click', function() {
-        //     document.getElementById('viewByDate').classList.remove('hidden');
-        //     document.getElementById('viewByCompletion').classList.add('hidden');
-        // });
+    <main>
 
-        // document.getElementById('btnCompletion').addEventListener('click', function() {
-        //     document.getElementById('viewByDate').classList.add('hidden');
-        //     document.getElementById('viewByCompletion').classList.remove('hidden');
-        // });
-
-        function showView(radio) {
-            if (radio.value == 'btnDate') {
-                document.getElementById('viewByDate').classList.remove('hidden');
-                document.getElementById('viewByCompletion').classList.add('hidden');
-            } else {
-                document.getElementById('viewByDate').classList.add('hidden');
-                document.getElementById('viewByCompletion').classList.remove('hidden');
+        <script>
+            function showView(radio) {
+                if (radio.value == 'btnDate') {
+                    document.getElementById('viewByDate').classList.remove('hidden');
+                    document.getElementById('viewByCompletion').classList.add('hidden');
+                } else {
+                    document.getElementById('viewByDate').classList.add('hidden');
+                    document.getElementById('viewByCompletion').classList.remove('hidden');
+                }
             }
-        }
+        </script>
+    
+    
+        <div class="button-container">
+            <input onclick="showView(this)" value="btnDate" type="radio" id="btnDate" name="sortOption" class="toggle-input" checked>
+            <label for="btnDate" class="toggle-button">Sort by date</label>
 
-        // document.getElementById('btnDate').addEventListener('click', function() {
-        //     document.getElementById('viewByDate').classList.remove('hidden');
-        //     document.getElementById('viewByCompletion').classList.add('hidden');
-        // });
+            <input onclick="showView(this)" value="btnCompletion" type="radio" id="btnCompletion" name="sortOption" class="toggle-input">
+            <label for="btnCompletion" class="toggle-button">Sort by completion</label>
+        </div>
+    
+        <!-- Complete/incomplete -->
+        <section id="viewByCompletion" class="hidden">
+            <p id="incomplete-title">Tasks to do</p>
+            <table id="incomplete-table" class="task-table">
+        
+            </table>
+        
+            <br>
+        
+            <p id="complete-title">Done</p>
+            <table id="complete-table" class="task-table">
+        
+            </table>
+        </section>
+        
+    
+        <!-- Ali table -->
+        <section id="viewByDate" >
+            <table>
+                <thead>
+                <tr>
+                    <th>Due Date</th>
+                </tr>
+                </thead>
+                <tbody id="data-table"></tbody>
+            </table>
+        </section>
+        
 
-        // document.getElementById('btnCompletion').addEventListener('click', function() {
-        //     document.getElementById('viewByDate').classList.add('hidden');
-        //     document.getElementById('viewByCompletion').classList.remove('hidden');
-        // });
-    </script>
-  
-  
-    <div class="button-container">
-        <input onclick="showView(this)" value="btnDate" type="radio" id="btnDate" name="sortOption" class="toggle-input" checked>
-        <label for="btnDate" class="toggle-button">Sort by date</label>
-
-        <input onclick="showView(this)" value="btnCompletion" type="radio" id="btnCompletion" name="sortOption" class="toggle-input">
-        <label for="btnCompletion" class="toggle-button">Sort by completion</label>
-    </div>
-  
-    <!-- Complete/incomplete -->
-    <section id="viewByCompletion" class="hidden">
-        <p id="incomplete-title">Tasks to do</p>
-        <table id="incomplete-table" class="task-table">
-    
-        </table>
-    
-        <br>
-    
-        <p id="complete-title">Done</p>
-        <table id="complete-table" class="task-table">
-    
-        </table>
-    </section>
-    
-  
-    <!-- Ali table -->
-    <section id="viewByDate" >
-        <table>
-            <thead>
-              <tr>
-                <th>Due Date</th>
-                <!-- <th>Task</th> -->
-              </tr>
-            </thead>
-            <tbody id="data-table"></tbody>
-          </table>
-    </section>
-    
-
-    <script>
-      const parsed_dates = [];
-      fetch("tasks.json")
-        .then((response) => response.json())
-        .then((data) => {
-          data.forEach((task) => {
-            parsed_dates.push({
-              descriptions_val: task.description,
-              date_val: new Date(Date.parse(task.due_date)),
-              completed_val: task.completed,
+        <script>
+        const parsed_dates = [];
+        fetch("tasks.json")
+            .then((response) => response.json())
+            .then((data) => {
+            data.forEach((task) => {
+                parsed_dates.push({
+                descriptions_val: task.description,
+                date_val: new Date(Date.parse(task.due_date)),
+                completed_val: task.completed,
+                });
             });
-          });
-          parsed_dates.sort((a, b) => a.date_val - b.date_val);
-        })
-        .then(() => {
-          const table_data = document.getElementById("data-table");
-          parsed_dates.forEach((element) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `  
-                        <td>${new Date(element.date_val).toLocaleString(
-                          undefined,
-                          {
-                            month: "numeric",
-                            day: "numeric",
-                          }
-                        )} | ${element.descriptions_val}</td>
-                    `;
-            if (element.completed_val == true) {
-              row.style.textDecoration = "line-through";
-            }
-            table_data.appendChild(row);
-          });
-        });
-    </script>
+            parsed_dates.sort((a, b) => a.date_val - b.date_val);
+            })
+            .then(() => {
+            const table_data = document.getElementById("data-table");
+            parsed_dates.forEach((element) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `  
+                            <td>${new Date(element.date_val).toLocaleString(
+                            undefined,
+                            {
+                                month: "numeric",
+                                day: "numeric",
+                            }
+                            )} | ${element.descriptions_val}</td>
+                        `;
+                if (element.completed_val == true) {
+                row.style.textDecoration = "line-through";
+                }
+                table_data.appendChild(row);
+            });
+            });
+        </script>
+    </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="contact">
-                <p style="font-family: Inter;font-weight: 100;font-size: 1em;">
-                    THANK YOU FOR USING OUR APP
-                </p>
-                <p style="font-family: Kaisei Opti;font-weight: 400;font-size: 1.8em;">
-                    Ta-da makes your life easier
-                </p>
-                <p style="font-family: Source Sans 3; font-weight: 600;font-size: 1em;">
-                    Contact us to learn more about us!
-                </p>
-                <a href="https://github.com/cse110-sp24-group14" target="_blank">
-                    <button class="contact-button">
-                        Contact Us
-                    </button>
-                </a>
-            </div>
-
-            <div class ='footer-bar'>
-                <hr>
-                <div class="footer-content">
-                    <p style="font-family: Caveat;">
-                        Ta-da!
+        <footer>
+            <div class="footer-container">
+                <div class="contact">
+                    <p style="font-family: Inter;font-weight: 100;font-size: 1em;">
+                        THANK YOU FOR USING OUR APP
+                    </p>
+                    <p style="font-family: Kaisei Opti;font-weight: 400;font-size: 1.8em;">
+                        Ta-da makes your life easier
+                    </p>
+                    <p style="font-family: Source Sans 3; font-weight: 600;font-size: 1em;">
+                        Contact us to learn more about us!
                     </p>
                     <a href="https://github.com/cse110-sp24-group14" target="_blank">
-                        <img src="assets/Social.png" alt="Github">
+                        <button class="contact-button">
+                            Contact Us
+                        </button>
                     </a>
                 </div>
+
+                <div class ='footer-bar'>
+                    <hr>
+                    <div class="footer-content">
+                        <p style="font-family: Caveat;">
+                            Ta-da!
+                        </p>
+                        <a href="https://github.com/cse110-sp24-group14" target="_blank">
+                            <img src="assets/Social.png" alt="Github">
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
     
 </body>

@@ -2,54 +2,16 @@ table {
     border-collapse: separate;
     border-spacing: 0px 10px;
     /* position: relative; */
+    margin: 0 auto;
 }
 
-/* tr {
-    border-radius: 10px;
-} */
-
-/* .row-wrapper {
-    border-radius: 10px; 
-    overflow: hidden; 
-} */
-
-
-
-
-
 th, td {
-    background-color: lightgreen;
+    background-color:  #eaeaea;
     padding: 25px;
     text-align: left;
     border-radius: 10px; 
     overflow: hidden; 
     padding-right: 100px;
+    width: 600px;
+    color: #1D61BD;
 }
-
-tr {
-    border-bottom: 1px solid #ccc; /* Add border below each row */
-    /* width: 400px; */
-}
-
-/* tr {
-    background-color: green;
-    padding: 10px;
-    border-radius: 5px;
-} */
-
-/* td {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px; 
-    background-color: #FAFAFA;
-    min-width: 10cm;
-    min-height: 2cm;
-}
-
-td:hover{
-    background-color: #EBEBEB;
-}
-
-tr{
-    color: #2168C4
-} */
