@@ -8,17 +8,58 @@
 </head>
 
 <body>
-    <p id="incomplete-title">Tasks to do</p>
-    <table id="incomplete-table" class="task-table">
+     <!-- TEMPORARY HTML ELEMENTS  -->
+     <header class="main-header">
+        <div class="head-title">
+            <img class="logo" src="logo.png" alt="logo">
+            <h1 class="title">Ta-da!</h1>
+        </div>
+        <div class="small-header">
+            <p id="today">Today: 4/23/2024</p>
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a>Sort by date</a></li>
+                    <li><a>Sort by completion</a></li>
+                </ul>
+            </nav>
+        </div>
+     </header>
 
-    </table>
+     <main class="main-container">
+        <div class="page-container">
+    
+            <table id="incomplete-table">
+                <caption>Incomplete</caption>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                </tr>
+            </table>
+    
+            <br>
+    
+            <table id="complete-table">
+                <caption>Complete</caption>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                </tr>
+            </table>
+        </div>
+    </main>
 
-    <br>
-
-    <p id="complete-title">Done</p>
-    <table id="complete-table" class="task-table">
-
-    </table>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div id="footer-elements">
+                <h3>Ta-da makes your life easier</h3>
+                <p>Contact us to learn more about us!</p>
+                <button>Contact Us</button>
+            </div>
+        </div>
+    </footer>
+ 
 
     <script src="app.js"></script>
     <script src="completeness.js"></script>

@@ -1,16 +1,111 @@
-.title {
-    color: aqua;
-    margin: 0;
+/* font for title */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+/* make sure every section is center*/
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* The top of the title */
+.head-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.005em;
+    width: 200px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 6%);
+    margin: 0 auto;
     text-align: center;
+    
+    
+    border-radius: 10%;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    
+    
+}
+
+/* logo size */
+.logo {
+    height: 40px;
+    width: 40px;
+    margin: 0;
+}
+
+/* Ta-da font and style*/
+.head-title h1 {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    
+    color: #1D61BD;
+    margin: 0;
+    
+}
+
+/* small heandline about current date and nav*/
+.small-header {
+    margin: 1em 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#today {
+    font-weight: bold;
+}
+
+/* style for table types button*/
+.nav  ul {
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    display:inline-block;
+    padding: 0.5em;
+    background-color: #1D61BD;
+    color: white;
+    border: 2px solid #1D61BD;
+    border-radius: 10%;
+    text-decoration: none;
+    margin-right: 50px;
+
+    &:hover
+    {
+        color: #1D61BD;
+        background-color: white;
+        border: 2px solid #1D61BD;
+    }
+}
+
+
+.nav a:active {
+    background-color: #1D61BD;
 }
 
 
 
 
 
+/* make the footer center*/
+.main-footer {
+    margin: 5em;
+    text-align: center;
+}
 
 
-@media screen and (max-width: 600px) 
+
+
+/* Just a template for mobile responsive*/
+@media screen and (max-width: 900px) 
 {
     /* table general spacing*/
     .task-table {
