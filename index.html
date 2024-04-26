@@ -12,10 +12,21 @@
 </head>
 
 <body>
+    
     <nav class="banner"> 
         <img class="logo" src="logo.png" alt="Team Logo">   
         <p>Ta-da!</p>
     </nav>
+  
+  
+    <div class="button-container">
+        <input type="radio" id="btnDate" name="sortOption" class="toggle-input" checked>
+        <label for="btnDate" class="toggle-button">Sort by date</label>
+
+        <input type="radio" id="btnCompletion" name="sortOption" class="toggle-input">
+        <label for="btnCompletion" class="toggle-button">Sort by completion</label>
+    </div>
+  
     <p id="incomplete-title">Tasks to do</p>
     <table id="incomplete-table" class="task-table">
 
