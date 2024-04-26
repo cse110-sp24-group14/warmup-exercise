@@ -1,0 +1,20 @@
+table {
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+    margin: 0 auto;
+}
+
+td {
+    background-color:  #f8f8f8;
+    padding: 25px;
+    text-align: left;
+    border-radius: 10px; 
+    overflow: hidden; 
+    padding-right: 100px;
+    width: 600px;
+    color: #1D61BD;
+}
+
+td:hover{
+    background-color: #EBEBEB;
+}

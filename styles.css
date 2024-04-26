@@ -37,16 +37,20 @@ body {
     padding: 17px 22px;
 }
 
+
   /* Set up footer position and size */
 footer {
     background: rgb(26,90,185);
     background: linear-gradient(90deg, rgba(26,90,185,1) 0%, rgba(66,164,235,1) 100%);
-    width: 100vw;
+    /* width: 100vw; */
     height: auto;
     font-size: 14px;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     left: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 25px;
 }
 
 /* Remove outlines and set up border-box */
@@ -54,6 +58,7 @@ footer * {
     box-sizing: border-box;
     border: none;
     outline: none;
+    margin-bottom: 5px;
 }
 
 /* Offset footer from web content */
@@ -62,6 +67,7 @@ footer * {
     padding-top: 0.5em;
     padding-bottom: 0em;
 }
+
 
 /* Set size and offset of footer text */
 .contact * {
@@ -99,6 +105,7 @@ footer * {
 .contact-button:hover {
     background-color: rgb(180, 180, 180);
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 /* Position menu bar container */
@@ -177,3 +184,36 @@ footer * {
     width: 40px;
     height: auto; 
 }
+
+.hidden {
+    display: none;
+}
+
+
+/* Apply styles for screens with a maximum width of 950px (tablet) */
+@media only screen and (max-width: 950px) {
+    #page-container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    table {
+        width: 100%;
+    }
+}
+
+/* Apply styles for screens with a maximum width of 650px (mobile) */
+@media only screen and (max-width: 650px) {
+    #page-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    table {
+        width: 100%;
+    }
+}
+
+main {
+    margin-top: 100px;
+    text-align: center;
+}
+

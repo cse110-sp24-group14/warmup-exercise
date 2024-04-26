@@ -62,18 +62,30 @@ const createRow = (task, completed) => {
 
     // description of task
     const description = document.createElement('td');
-    description.textContent = task.description;
+    description.textContent = new Date(task.due_date).toLocaleString(undefined, {
+        month: "numeric", day: "numeric"
+    }) + " | " + task.description;
 
     // if completed, strikethrough
     if (completed) {
         description.style.textDecoration = "line-through";
     }
 
+    description.className = "c-description"
+    date.className = "c-date"
+
     // append to row
-    row.appendChild(date);
+    // row.appendChild(date);
     row.appendChild(description);
 
     return row;
+
+    // // create a div container for the row with class "row-container"
+    // const rowContainer = document.createElement('div');
+    // rowContainer.className = "row-container";
+    // rowContainer.appendChild(row);
+
+    // return rowContainer;
 }
 
 fetchJson('./tasks.json');

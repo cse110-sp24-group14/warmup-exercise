@@ -7,120 +7,106 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@100..900&family=Kaisei+Opti&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-<!--     <link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet'> -->
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="tableStyles.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>Ta-da!</title>
+    <script src="app.js"></script>
+    <script src="completeness.js"></script>
 </head>
 
 <body>
-    
+
     <nav class="banner"> 
-        <img class="logo" src="logo.png" alt="Team Logo">   
+        <img class="logo" src="assets/logo.png" alt="Team Logo">   
         <p>Ta-da!</p>
     </nav>
-  
-  
-    <div class="button-container">
-        <input type="radio" id="btnDate" name="sortOption" class="toggle-input" checked>
-        <label for="btnDate" class="toggle-button">Sort by date</label>
 
-        <input type="radio" id="btnCompletion" name="sortOption" class="toggle-input">
-        <label for="btnCompletion" class="toggle-button">Sort by completion</label>
-    </div>
-  
-    <p id="incomplete-title">Tasks to do</p>
-    <table id="incomplete-table" class="task-table">
+    <main>
+        <!-- Buttons to show each view -->
+        <div class="button-container">
+            <input onclick="showView(this)" value="btnDate" type="radio" id="btnDate" name="sortOption" class="toggle-input" checked>
+            <label for="btnDate" class="toggle-button">Sort by date</label>
 
-    </table>
-
-    <br>
-
-    <p id="complete-title">Done</p>
-    <table id="complete-table" class="task-table">
-
-    </table>
-  
-      <table>
-      <thead>
-        <tr>
-          <th>Due Date</th>
-          <th>Task</th>
-        </tr>
-      </thead>
-      <tbody id="data-table"></tbody>
-    </table>
-
-    <script src="app.js"></script>
-    <script>
-      const parsed_dates = [];
-      fetch("tasks.json")
-        .then((response) => response.json())
-        .then((data) => {
-          data.forEach((task) => {
-            parsed_dates.push({
-              descriptions_val: task.description,
-              date_val: new Date(Date.parse(task.due_date)),
-              completed_val: task.completed,
+            <input onclick="showView(this)" value="btnCompletion" type="radio" id="btnCompletion" name="sortOption" class="toggle-input">
+            <label for="btnCompletion" class="toggle-button">Sort by completion</label>
+        </div>
+    
+        <!-- View: sort by completion-->
+        <section id="viewByCompletion" class="hidden">
+            <h3 id="incomplete-title" class="completeness-header">Tasks to do</h3>
+            <table id="incomplete-table" class="task-table">
+            </table>
+            <br>
+            <h3 id="complete-title" class="completeness-header">Done</h3>
+            <table id="complete-table" class="task-table">
+            </table>
+        </section>
+    
+        <!-- View: sort by date -->
+        <section id="viewByDate" >
+            <h3>Due Date</h3>
+            <table>
+                <tbody id="data-table"></tbody>
+            </table>
+        </section>
+    
+        <script>
+        const parsed_dates = [];
+        fetch("tasks.json")
+            .then((response) => response.json())
+            .then((data) => {
+            data.forEach((task) => {
+                parsed_dates.push({
+                descriptions_val: task.description,
+                date_val: new Date(Date.parse(task.due_date)),
+                completed_val: task.completed,
+                });
             });
-          });
-          parsed_dates.sort((a, b) => a.date_val - b.date_val);
-        })
-        .then(() => {
-          const table_data = document.getElementById("data-table");
-          parsed_dates.forEach((element) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `  
-                        <td>${new Date(element.date_val).toLocaleString(
-                          undefined,
-                          {
-                            month: "numeric",
-                            day: "numeric",
-                          }
-                        )}</td>
-                        <td>${element.descriptions_val}</td>
-                    `;
-            if (element.completed_val == true) {
-              row.style.textDecoration = "line-through";
-            }
-            table_data.appendChild(row);
-          });
-        });
-    </script>
+            parsed_dates.sort((a, b) => a.date_val - b.date_val);
+            })
+            .then(() => {
+            const table_data = document.getElementById("data-table");
+            parsed_dates.forEach((element) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `  
+                            <td>${new Date(element.date_val).toLocaleString(
+                            undefined,
+                            {
+                                month: "numeric",
+                                day: "numeric",
+                            }
+                            )} | ${element.descriptions_val}</td>
+                        `;
+                if (element.completed_val == true) {
+                row.style.textDecoration = "line-through";
+                }
+                table_data.appendChild(row);
+            });
+            });
+        </script>
+    </main>
 
     <footer>
         <div class="footer-container">
             <div class="contact">
-                <p style="font-family: Inter;font-weight: 100;font-size: 1em;">
-                    THANK YOU FOR USING OUR APP
-                </p>
-                <p style="font-family: Kaisei Opti;font-weight: 400;font-size: 1.8em;">
-                    Ta-da makes your life easier
-                </p>
-                <p style="font-family: Source Sans 3; font-weight: 600;font-size: 1em;">
-                    Contact us to learn more about us!
-                </p>
-                <a href="https://github.com/cse110-sp24-group14" target="_blank">
-                    <button class="contact-button">
-                        Contact Us
-                    </button>
-                </a>
+                <p style="font-family: Inter;font-weight: 100;font-size: 1em;">THANK YOU FOR USING OUR APP</p>
+                <p style="font-family: Kaisei Opti;font-weight: 400;font-size: 1.8em;">Ta-da makes your life easier</p>
+                <p style="font-family: Source Sans; font-weight: 600;font-size: 1em;">Contact us to learn more about us!</p>
+                <button class="contact-button" onclick="openContactLink()">Contact Us</button>
             </div>
-
             <div class ='footer-bar'>
                 <hr>
                 <div class="footer-content">
                     <p style="font-family: Caveat;">
                         Ta-da!
                     </p>
-                    <a href="https://github.com/cse110-sp24-group14" target="_blank">
+                    <a href="https://github.com/cse110-sp24-group14/warmup-exercise" target="_blank">
                         <img src="assets/Social.png" alt="Github">
                     </a>
                 </div>
             </div>
         </div>
     </footer>
-
-    <script src="app.js"></script>
-    <script src="completeness.js"></script>
 </body>
 </html>
