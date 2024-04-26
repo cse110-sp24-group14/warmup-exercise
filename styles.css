@@ -48,6 +48,9 @@ footer {
     /* position: absolute; */
     bottom: 0;
     left: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 25px;
 }
 
 /* Remove outlines and set up border-box */
@@ -56,7 +59,6 @@ footer * {
     border: none;
     outline: none;
     margin-bottom: 5px;
-    margin-top: 5px;
 }
 
 /* Offset footer from web content */
@@ -103,6 +105,7 @@ footer * {
 .contact-button:hover {
     background-color: rgb(180, 180, 180);
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 /* Position menu bar container */
@@ -187,16 +190,6 @@ footer * {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /* Apply styles for screens with a maximum width of 950px (tablet) */
 @media only screen and (max-width: 950px) {
     #page-container {
@@ -219,8 +212,8 @@ footer * {
     }
 }
 
-
 main {
     margin-top: 100px;
     text-align: center;
 }
+
