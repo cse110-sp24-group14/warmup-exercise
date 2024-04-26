@@ -20,16 +20,50 @@
         <img class="logo" src="logo.png" alt="Team Logo">   
         <p>Ta-da!</p>
     </nav>
+
+    <script>
+        // document.getElementById('btnDate').addEventListener('click', function() {
+        //     document.getElementById('viewByDate').classList.remove('hidden');
+        //     document.getElementById('viewByCompletion').classList.add('hidden');
+        // });
+
+        // document.getElementById('btnCompletion').addEventListener('click', function() {
+        //     document.getElementById('viewByDate').classList.add('hidden');
+        //     document.getElementById('viewByCompletion').classList.remove('hidden');
+        // });
+
+        function showView(radio) {
+            if (radio.value == 'btnDate') {
+                document.getElementById('viewByDate').classList.remove('hidden');
+                document.getElementById('viewByCompletion').classList.add('hidden');
+            } else {
+                document.getElementById('viewByDate').classList.add('hidden');
+                document.getElementById('viewByCompletion').classList.remove('hidden');
+            }
+        }
+
+        // document.getElementById('btnDate').addEventListener('click', function() {
+        //     document.getElementById('viewByDate').classList.remove('hidden');
+        //     document.getElementById('viewByCompletion').classList.add('hidden');
+        // });
+
+        // document.getElementById('btnCompletion').addEventListener('click', function() {
+        //     document.getElementById('viewByDate').classList.add('hidden');
+        //     document.getElementById('viewByCompletion').classList.remove('hidden');
+        // });
+    </script>
   
   
     <div class="button-container">
-        <input type="radio" id="btnDate" name="sortOption" class="toggle-input" checked>
+        <input onclick="showView(this)" value="btnDate" type="radio" id="btnDate" name="sortOption" class="toggle-input" checked>
         <label for="btnDate" class="toggle-button">Sort by date</label>
 
-        <input type="radio" id="btnCompletion" name="sortOption" class="toggle-input">
+        <input onclick="showView(this)" value="btnCompletion" type="radio" id="btnCompletion" name="sortOption" class="toggle-input">
         <label for="btnCompletion" class="toggle-button">Sort by completion</label>
     </div>
   
+    <!-- Complete/incomplete -->
+    <section id="viewByCompletion" class="hidden">
     <p id="incomplete-title">Tasks to do</p>
     <table id="incomplete-table" class="task-table">
 
@@ -41,7 +75,11 @@
     <table id="complete-table" class="task-table">
 
     </table>
+    </section>
+    
   
+    <!-- Ali table -->
+    <section id="viewByDate" >
       <table>
       <thead>
         <tr>
@@ -51,6 +89,8 @@
       </thead>
       <tbody id="data-table"></tbody>
     </table>
+    </section>
+    
 
     <script>
       const parsed_dates = [];
