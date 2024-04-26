@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +39,53 @@
     <table id="complete-table" class="task-table">
 
     </table>
+  
+      <table>
+      <thead>
+        <tr>
+          <th>Due Date</th>
+          <th>Task</th>
+        </tr>
+      </thead>
+      <tbody id="data-table"></tbody>
+    </table>
+
+    <script src="app.js"></script>
+    <script>
+      const parsed_dates = [];
+      fetch("tasks.json")
+        .then((response) => response.json())
+        .then((data) => {
+          data.forEach((task) => {
+            parsed_dates.push({
+              descriptions_val: task.description,
+              date_val: new Date(Date.parse(task.due_date)),
+              completed_val: task.completed,
+            });
+          });
+          parsed_dates.sort((a, b) => a.date_val - b.date_val);
+        })
+        .then(() => {
+          const table_data = document.getElementById("data-table");
+          parsed_dates.forEach((element) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `  
+                        <td>${new Date(element.date_val).toLocaleString(
+                          undefined,
+                          {
+                            month: "numeric",
+                            day: "numeric",
+                          }
+                        )}</td>
+                        <td>${element.descriptions_val}</td>
+                    `;
+            if (element.completed_val == true) {
+              row.style.textDecoration = "line-through";
+            }
+            table_data.appendChild(row);
+          });
+        });
+    </script>
 
     <footer>
         <div class="footer-container">
