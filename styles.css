@@ -68,6 +68,7 @@ footer * {
     padding-bottom: 0em;
 }
 
+
 /* Set size and offset of footer text */
 .contact * {
     margin-left: 0px;
@@ -181,4 +182,8 @@ footer * {
     /* Logo size */
     width: 40px;
     height: auto; 
+}
+
+.hidden {
+    display: none;
 }
