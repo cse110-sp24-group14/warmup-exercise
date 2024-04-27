@@ -85,7 +85,7 @@
                 completed_val: task.completed,
                 });
             });
-            parsed_dates.sort((a, b) => a.date_val - b.date_val);
+            parsed_dates.sort((a, b) => b.date_val - a.date_val);
             })
             .then(() => {
             const table_data = document.getElementById("data-table");

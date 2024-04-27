@@ -18,3 +18,7 @@ td {
 td:hover{
     background-color: #EBEBEB;
 }
+
+#viewByDate {
+    margin-top: 25px;
+}
