@@ -115,9 +115,13 @@ const createRow = (task, completed) => {
       month: "numeric", day: "numeric"
   }) + " | " + task.description;
 
-
-  description.className = "c-description"
-  date.className = "c-date"
+  // if completed, strikethrough
+  if (completed) {
+    if (completed) {
+        description.style.textDecoration = "line-through";
+        description.style.textDecoration = "line-through";
+    }
+  }
 
   row.appendChild(description);
 
