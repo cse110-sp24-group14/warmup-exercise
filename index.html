@@ -79,7 +79,7 @@
                             )} | ${element.descriptions_val}</td>
                         `;
                 if (element.completed_val == true) {
-                row.style.textDecoration = "line-through";
+                row.children[0].style.textDecoration = "line-through";
                 }
                 table_data.appendChild(row);
             });
