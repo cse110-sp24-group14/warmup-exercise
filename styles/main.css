@@ -2,16 +2,18 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+main {
+    margin-top: 100px;
+    text-align: center;
+}
+
 .hidden {
     display: none;
 }
 
 /* Apply styles for screens with a maximum width of 950px (tablet) */
 @media only screen and (max-width: 950px) {
-    #page-container {
-        padding-left: 10%;
-        padding-right: 10%;
-    }
+    
     table {
         width: 100%;
     }
@@ -19,17 +21,7 @@ body {
 
 /* Apply styles for screens with a maximum width of 650px (mobile) */
 @media only screen and (max-width: 650px) {
-    #page-container {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
     table {
         width: 100%;
     }
 }
-
-main {
-    margin-top: 100px;
-    text-align: center;
-}
-

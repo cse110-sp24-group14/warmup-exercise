@@ -20,3 +20,23 @@ header {
     font-size: 1.3750em;
     font-weight: bold;
 }
+
+/* Apply styles for screens with a maximum width of 650px (mobile) */
+@media only screen and (max-width: 650px) {
+
+    #header-container {
+        display: flex; 
+        flex-direction: column; 
+    }
+
+    .button-container {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 410) {
+    .button-container {
+        display: flex; 
+        flex-direction: column; 
+    }
+}

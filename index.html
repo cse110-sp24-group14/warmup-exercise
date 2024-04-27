@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@100..900&family=Kaisei+Opti&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/bannerStyles.css">
     <link rel="stylesheet" href="./styles/buttonStyles.css">
     <link rel="stylesheet" href="./styles/tableStyles.css">
@@ -18,7 +18,6 @@
     <link rel="icon" type="image/png" href="assets/logo.png">
     <title>Ta-da!</title>
     <script src="app.js"></script>
-    <script src="completeness.js"></script>
 </head>
 
 <body>
@@ -35,15 +34,13 @@
                 <script>
                     // gets today's date
                     const date = new Date();
-            
                     // date in MM/DD/YYYY format
                     const formattedDate = date.toLocaleDateString("en-US", {day: "numeric", month: "numeric", year: "numeric"});
-                    
+                
                     const header = document.getElementById("header-container");
                     const headerDate = document.createElement("p");
                     headerDate.id = "header-date";
                     headerDate.innerHTML = `Today: ${formattedDate}`
-
                     header.appendChild(headerDate);
                 </script>
 
@@ -71,7 +68,6 @@
     
         <!-- View: sort by date -->
         <section id="viewByDate" >
-            <h3>Due Date</h3>
             <table>
                 <tbody id="data-table"></tbody>
             </table>
