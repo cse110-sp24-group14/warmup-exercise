@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="./styles/buttonStyles.css">
     <link rel="stylesheet" href="./styles/tableStyles.css">
     <link rel="stylesheet" href="./styles/footerStyles.css">
-    
+    <link rel="stylesheet" href="./styles/headerStyles.css">
+
     <link rel="icon" type="image/png" href="assets/logo.png">
     <title>Ta-da!</title>
     <script src="app.js"></script>
@@ -28,14 +29,34 @@
     </nav>
 
     <main>
-        <!-- Buttons to show each view -->
-        <div class="button-container">
-            <input onclick="showView(this)" value="btnDate" type="radio" id="btnDate" name="sortOption" class="toggle-input" checked>
-            <label for="btnDate" class="toggle-button">Sort by date</label>
+        <header>
+            <div id="header-container">
 
-            <input onclick="showView(this)" value="btnCompletion" type="radio" id="btnCompletion" name="sortOption" class="toggle-input">
-            <label for="btnCompletion" class="toggle-button">Sort by completion</label>
-        </div>
+                <script>
+                    // gets today's date
+                    const date = new Date();
+            
+                    // date in MM/DD/YYYY format
+                    const formattedDate = date.toLocaleDateString("en-US", {day: "numeric", month: "numeric", year: "numeric"});
+                    
+                    const header = document.getElementById("header-container");
+                    const headerDate = document.createElement("p");
+                    headerDate.id = "header-date";
+                    headerDate.innerHTML = `Today: ${formattedDate}`
+
+                    header.appendChild(headerDate);
+                </script>
+
+                <!-- Buttons to show each view -->
+                <div class="button-container">
+                    <input onclick="showView(this)" value="btnDate" type="radio" id="btnDate" name="sortOption" class="toggle-input" checked>
+                    <label for="btnDate" class="toggle-button">Sort by date</label>
+
+                    <input onclick="showView(this)" value="btnCompletion" type="radio" id="btnCompletion" name="sortOption" class="toggle-input">
+                    <label for="btnCompletion" class="toggle-button">Sort by completion</label>
+                </div>
+            </div>
+        </header>
     
         <!-- View: sort by completion-->
         <section id="viewByCompletion" class="hidden">
@@ -84,7 +105,7 @@
                             )} | ${element.descriptions_val}</td>
                         `;
                 if (element.completed_val == true) {
-                row.style.textDecoration = "line-through";
+                row.children[0].style.textDecoration = "line-through";
                 }
                 table_data.appendChild(row);
             });
