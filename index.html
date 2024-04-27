@@ -74,22 +74,36 @@
         </div>
     
         <script>
-        const parsed_dates = [];
+        const parsed_complete_dates = [];
+        const parsed_incomplete_dates = [];
         fetch("tasks.json")
             .then((response) => response.json())
             .then((data) => {
             data.forEach((task) => {
-                parsed_dates.push({
-                descriptions_val: task.description,
-                date_val: new Date(Date.parse(task.due_date)),
-                completed_val: task.completed,
-                });
+                if (task.completed) {
+                    parsed_complete_dates.push({
+                        descriptions_val: task.description,
+                        date_val: new Date(Date.parse(task.due_date)),
+                        completed_val: task.completed,
+                    });
+                } else {
+                    parsed_incomplete_dates.push({
+                        descriptions_val: task.description,
+                        date_val: new Date(Date.parse(task.due_date)),
+                        completed_val: task.completed,
+                    });
+                }
             });
-            parsed_dates.sort((a, b) => b.date_val - a.date_val);
+            parsed_complete_dates.sort((a, b) => a.date_val - b.date_val);
+            parsed_incomplete_dates.sort((a, b) => a.date_val - b.date_val);
             })
             .then(() => {
             const table_data = document.getElementById("data-table");
-            parsed_dates.forEach((element) => {
+
+            // combined sorted incomplete and complete dates
+            const combined_parsed_dates = parsed_incomplete_dates.concat(parsed_complete_dates);
+
+            combined_parsed_dates.forEach((element) => {
                 const row = document.createElement("tr");
                 row.innerHTML = `  
                             <td>${new Date(element.date_val).toLocaleString(
