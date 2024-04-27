@@ -1,0 +1,22 @@
+header {
+    display: flex;
+    justify-content: center;
+}
+
+#header-container {
+    width: 725px;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: solid #00000020;
+}
+
+#header-date {
+    margin: 20px 0px 20px 20px;
+    
+    font-size: 1.3750em;
+    font-weight: bold;
+}
