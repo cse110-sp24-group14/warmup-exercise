@@ -115,10 +115,6 @@ const createRow = (task, completed) => {
       month: "numeric", day: "numeric"
   }) + " | " + task.description;
 
-  // if completed, strikethrough
-  if (completed) {
-      description.style.textDecoration = "line-through";
-  }
 
   description.className = "c-description"
   date.className = "c-date"
